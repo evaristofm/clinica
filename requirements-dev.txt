@@ -1,0 +1,5 @@
+pytest
+pytest-flask
+flask-debugtoolbar
+ipython
+ipdb
