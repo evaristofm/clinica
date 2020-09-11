@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{{url_for('site.create_user')}}" method="POST" >
+    {{form.csrf_token}}
+
+    {{form.name.label}} 
+    {{form.name}} <br>
+    {{form.email.label}}
+    {{form.email}} <br>
+    {{form.password.label}}
+    {{form.password}} <br>
+
+    <button type="submit">Enviar</button>
+</form>
+{% endblock content %}

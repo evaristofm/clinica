@@ -7,7 +7,10 @@ class User(db.Model):
     id = db.Column("id",db.Integer, primary_key=True)
     name = db.Column("name", db.Unicode)
     email = db.Column("email", db.Unicode, unique=True, index=True)
-    passwd = db.Column("passwd", db.Unicode)
+    password = db.Column("passwd", db.Unicode)
+
+    patient = db.relationship("Patient", backref='user', uselist=False)
+
 
 
 class Patient(db.Model):
@@ -15,6 +18,14 @@ class Patient(db.Model):
 
     id = db.Column("id", db.Integer, primary_key=True)
     name = db.Column("name", db.Unicode)
+    cpf = db.Column(db.String(11))
+    endereco_1 = db.Column(db.String(100))
+    num = db.Column(db.Integer)
+    bairro = db.Column(db.String(40))
+    cidade = db.Column(db.String(40))
+    estado = db.Column(db.String(40))
+
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
 
 
